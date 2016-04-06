@@ -13,20 +13,20 @@ use Magento\Framework\Setup\InstallSchemaInterface,
  */
 class InstallSchema implements InstallSchemaInterface
 {
-    /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-     */
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
-    {
+	/**
+	 * {@inheritdoc}
+	 * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+	 */
+	public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+	{
 		$installer = $setup;
 
-        $installer->startSetup();
+		$installer->startSetup();
 
-        /**
-         * Create table 'blog'
-         */
-        $table = $installer->getConnection()->newTable( $installer->getTable('blog') );
+		/**
+		 * Create table 'blog'
+		 */
+		$table = $installer->getConnection()->newTable( $installer->getTable('blog') );
 		$table->addColumn( 'id',		Table::TYPE_SMALLINT,	NULL,	['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true], 'Blog ID')
 			->addColumn( 'title',		Table::TYPE_TEXT,		255,	['nullable' => false], 'Blog Title')
 			->addColumn( 'identifier',	Table::TYPE_TEXT,		255,	['nullable' => false], 'Blog String Identifier (tag)')
@@ -43,12 +43,12 @@ class InstallSchema implements InstallSchemaInterface
 				['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
 			)
 			->setComment('Blog Table');
-        $installer->getConnection()->createTable($table);
+		$installer->getConnection()->createTable($table);
 
-        /**
-         * Create table 'blog_store'
-         */
-        $table = $installer->getConnection()
+		/**
+		 * Create table 'blog_store'
+		 */
+		$table = $installer->getConnection()
 			->newTable($installer->getTable('blog_store'))
 			->addColumn( 'blog_id',	 Table::TYPE_SMALLINT, null, ['unsigned' => true, 'nullable' => false], 'Blog ID' )
 			->addColumn( 'store_id', Table::TYPE_SMALLINT, null, ['unsigned' => true, 'nullable' => false], 'Store ID' )
@@ -62,12 +62,12 @@ class InstallSchema implements InstallSchemaInterface
 				$installer->getTable('store'), 'store_id',
 				Table::ACTION_CASCADE)
 			->setComment('Blog To Store Linkage Table');
-        $installer->getConnection()->createTable($table);
+		$installer->getConnection()->createTable($table);
 
-        /**
-         * Create table 'blog_post'
-         */
-        $table = $installer->getConnection()
+		/**
+		 * Create table 'blog_post'
+		 */
+		$table = $installer->getConnection()
 			->newTable($installer->getTable('blog_post'))
 			->addColumn( 'id',			Table::TYPE_SMALLINT,	null,	['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true], 'Post ID')
 			->addColumn( 'title',			Table::TYPE_TEXT,		255,	['nullable' => true], 'Post Title')
@@ -90,7 +90,7 @@ class InstallSchema implements InstallSchemaInterface
 				$installer->getTable('blog'), 'id',
 				Table::ACTION_CASCADE )
 			->setComment('Blog Post Table');
-        $installer->getConnection()->createTable($table);
-        $installer->endSetup();
-    }
+		$installer->getConnection()->createTable($table);
+		$installer->endSetup();
+	}
 }

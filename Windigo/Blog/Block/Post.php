@@ -16,31 +16,31 @@ use Magento\Framework\View\Element\Template,
  */
 class Post extends Template implements IdentityInterface {
 	/**
-     * @var \Windigo\Blog\Model\Resource\Post\CollectionFactory
-     */
-    protected $postCollectionFactory;
+	 * @var \Windigo\Blog\Model\Resource\Post\CollectionFactory
+	 */
+	protected $postCollectionFactory;
 
-    /**
-     * Construct
-     *
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Windigo\Blog\Model\Resource\Post\CollectionFactory $postCollectionFactory,
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Windigo\Blog\Model\Resource\Post\CollectionFactory $postCollectionFactory,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-        $this->postCollectionFactory = $postCollectionFactory;
-    }
+	/**
+	 * Construct
+	 *
+	 * @param \Magento\Framework\View\Element\Template\Context $context
+	 * @param \Windigo\Blog\Model\Resource\Post\CollectionFactory $postCollectionFactory,
+	 * @param array $data
+	 */
+	public function __construct(
+		\Magento\Framework\View\Element\Template\Context $context,
+		\Windigo\Blog\Model\Resource\Post\CollectionFactory $postCollectionFactory,
+		array $data = []
+	) {
+		parent::__construct($context, $data);
+		$this->postCollectionFactory = $postCollectionFactory;
+	}
 	
 	/**
-     * Return identifiers for produced content
-     *
-     * @return array
-     */
+	 * Return identifiers for produced content
+	 *
+	 * @return array
+	 */
 	public function getIdentities() {
 		return [PostModel::CACHE_TAG . '_' . 'list' ];
 	}

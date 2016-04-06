@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Windigo_Blog::blog" title="Blogs" module="Windigo_Blog" sortOrder="100" parent="Magento_Backend::content_elements" action="wblog/blog" resource="Windigo_Blog::blog"/>
+		<add id="Windigo_Blog::blog_head" title="W-Blog" module="Windigo_Blog" sortOrder="100" parent="Magento_Backend::content" resource="Windigo_Blog::blog_head" />
+        <add id="Windigo_Blog::blog" title="Blogs" module="Windigo_Blog" sortOrder="10" parent="Windigo_Blog::blog_head" action="wblog/blog" resource="Windigo_Blog::blog"/>
+        <add id="Windigo_Blog::post" title="Posts" module="Windigo_Blog" sortOrder="20" parent="Windigo_Blog::blog_head" action="wblog/post" resource="Windigo_Blog::post" />
+	
     </menu>
 </config>

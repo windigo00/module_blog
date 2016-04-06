@@ -7,11 +7,11 @@ namespace Windigo\Blog\Model\Blog\Source;
  */
 class IsActiveFilter extends IsActive
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function toOptionArray()
-    {
-        return array_merge([['label' => '', 'value' => '']], parent::toOptionArray());
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function toOptionArray()
+	{
+		return array_merge([['label' => '', 'value' => '']], parent::toOptionArray());
+	}
 }

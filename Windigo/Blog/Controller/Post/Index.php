@@ -8,5 +8,5 @@ use Windigo\Blog\Controller\AbstractBlog;
  * @author KuBik
  */
 class Index extends AbstractBlog {
-    
+	
 }

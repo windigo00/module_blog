@@ -2,21 +2,21 @@
 namespace Windigo\Blog\Api\Data;
 
 /**
- * Blog interface.
+ * Post interface.
  * @api
  */
-interface BlogInterface
-{
+interface PostInterface {
 	/**#@+
 	 * Constants for keys of data array. Identical to the name of the getter in snake case
 	 */
-	const BLOG_ID				= 'id';
-	const IDENTIFIER			= 'identifier';
+	const POST_ID				= 'id';
 	const TITLE					= 'title';
 	const META_KEYWORDS			= 'meta_keywords';
 	const META_DESCRIPTION		= 'meta_description';
+	const CONTENT				= 'content';
 	const CREATION_TIME			= 'creation_time';
 	const UPDATE_TIME			= 'update_time';
+	const BLOG_ID				= 'blog_id';
 	const IS_ACTIVE				= 'is_active';
 	/**#@-*/
 
@@ -122,6 +122,14 @@ interface BlogInterface
 	 * @return \Windigo\Blog\Api\Data\BlogInterface
 	 */
 	public function setMetaDescription($metaDescription);
+
+	/**
+	 * Set content
+	 *
+	 * @param string $content
+	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 */
+	public function setContent($content);
 
 	/**
 	 * Set creation time
