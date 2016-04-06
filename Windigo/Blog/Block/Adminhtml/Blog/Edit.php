@@ -37,7 +37,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 	 */
 	protected function _construct()
 	{
-		$this->_objectId = 'blog_id';
+		$this->_objectId = 'id';
 		$this->_blockGroup = 'Windigo_Blog';
 		$this->_controller = 'adminhtml_blog';
 
@@ -76,8 +76,8 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 	 */
 	public function getHeaderText()
 	{
-		if ($this->_coreRegistry->registry('blog')->getId()) {
-			return __("Edit Blog '%1'", $this->escapeHtml($this->_coreRegistry->registry('blog')->getTitle()));
+		if ($this->_coreRegistry->registry('wblog_blog')->getId()) {
+			return __("Edit Blog '%1'", $this->escapeHtml($this->_coreRegistry->registry('wblog_blog')->getTitle()));
 		} else {
 			return __('New Blog');
 		}

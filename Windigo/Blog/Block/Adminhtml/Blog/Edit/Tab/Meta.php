@@ -29,7 +29,7 @@ class Meta extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 
 		$form->setHtmlIdPrefix('blog_');
 
-		$model = $this->_coreRegistry->registry('blog');
+		$model = $this->_coreRegistry->registry('wblog_blog');
 
 		$fieldset = $form->addFieldset(
 			'meta_fieldset',

@@ -32,7 +32,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 	protected function _prepareForm()
 	{
 		/* @var $model \Windigo\Blog\Model\Blog */
-		$model = $this->_coreRegistry->registry('blog');
+		$model = $this->_coreRegistry->registry('wblog_blog');
 
 		/*
 		 * Checking if user have permissions to save information
@@ -51,7 +51,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 		$fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Blog Information')]);
 
 		if ($model->getId()) {
-			$fieldset->addField('blog_id', 'hidden', ['name' => 'blog_id']);
+			$fieldset->addField('id', 'hidden', ['name' => 'id']);
 		}
 
 		$fieldset->addField(

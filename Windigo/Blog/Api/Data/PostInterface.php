@@ -11,6 +11,7 @@ interface PostInterface {
 	 */
 	const POST_ID				= 'id';
 	const TITLE					= 'title';
+	const IDENTIFIER			= 'identifier';
 	const META_KEYWORDS			= 'meta_keywords';
 	const META_DESCRIPTION		= 'meta_description';
 	const CONTENT				= 'content';
@@ -28,7 +29,7 @@ interface PostInterface {
 	public function getId();
 
 	/**
-	 * Get identifier
+	 * Get content
 	 *
 	 * @return string
 	 */
@@ -77,6 +78,13 @@ interface PostInterface {
 	public function getUpdateTime();
 
 	/**
+	 * Get related blog id
+	 *
+	 * @return int
+	 */
+	public function getBlogId();
+	
+	/**
 	 * Is active
 	 *
 	 * @return bool|null
@@ -87,7 +95,7 @@ interface PostInterface {
 	 * Set ID
 	 *
 	 * @param int $id
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setId($id);
 
@@ -95,7 +103,7 @@ interface PostInterface {
 	 * Set identifier
 	 *
 	 * @param string $identifier
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setIdentifier($identifier);
 
@@ -103,7 +111,7 @@ interface PostInterface {
 	 * Set title
 	 *
 	 * @param string $title
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setTitle($title);
 
@@ -111,7 +119,7 @@ interface PostInterface {
 	 * Set meta keywords
 	 *
 	 * @param string $metaKeywords
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setMetaKeywords($metaKeywords);
 
@@ -119,7 +127,7 @@ interface PostInterface {
 	 * Set meta description
 	 *
 	 * @param string $metaDescription
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setMetaDescription($metaDescription);
 
@@ -127,7 +135,7 @@ interface PostInterface {
 	 * Set content
 	 *
 	 * @param string $content
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setContent($content);
 
@@ -135,7 +143,7 @@ interface PostInterface {
 	 * Set creation time
 	 *
 	 * @param string $creationTime
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setCreationTime($creationTime);
 
@@ -143,15 +151,23 @@ interface PostInterface {
 	 * Set update time
 	 *
 	 * @param string $updateTime
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setUpdateTime($updateTime);
+	
+	/**
+	 * Set related blog id
+	 *
+	 * @param int $blogId
+	 * @return \Windigo\Blog\Api\Data\PostInterface
+	 */
+	public function setBlogId($blogId);
 
 	/**
 	 * Set is active
 	 *
 	 * @param int|bool $isActive
-	 * @return \Windigo\Blog\Api\Data\BlogInterface
+	 * @return \Windigo\Blog\Api\Data\PostInterface
 	 */
 	public function setIsActive($isActive);
 }

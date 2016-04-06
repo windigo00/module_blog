@@ -55,12 +55,6 @@ interface BlogInterface
 	 */
 	public function getMetaDescription();
 
-	/**
-	 * Get content
-	 *
-	 * @return string|null
-	 */
-	public function getContent();
 
 	/**
 	 * Get creation time

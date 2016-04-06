@@ -1,10 +1,6 @@
 <?php
-/**
- *
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-namespace Magento\Cms\Controller\Adminhtml\Page;
+
+namespace Windigo\Blog\Controller\Adminhtml\Blog;
 
 class Delete extends \Magento\Backend\App\Action
 {
@@ -13,7 +9,7 @@ class Delete extends \Magento\Backend\App\Action
 	 */
 	protected function _isAllowed()
 	{
-		return $this->_authorization->isAllowed('Magento_Cms::page_delete');
+		return $this->_authorization->isAllowed('Magento_Cms::blog_delete');
 	}
 
 	/**
@@ -24,38 +20,38 @@ class Delete extends \Magento\Backend\App\Action
 	public function execute()
 	{
 		// check if we know what should be deleted
-		$id = $this->getRequest()->getParam('page_id');
+		$id = $this->getRequest()->getParam('id');
 		/** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
 		$resultRedirect = $this->resultRedirectFactory->create();
 		if ($id) {
 			$title = "";
 			try {
 				// init model and delete
-				$model = $this->_objectManager->create('Magento\Cms\Model\Page');
+				$model = $this->_objectManager->create('Windigo\Blog\Model\Blog');
 				$model->load($id);
 				$title = $model->getTitle();
 				$model->delete();
 				// display success message
-				$this->messageManager->addSuccess(__('The page has been deleted.'));
+				$this->messageManager->addSuccess(__('The blog has been deleted.'));
 				// go to grid
 				$this->_eventManager->dispatch(
-					'adminhtml_cmspage_on_delete',
+					'adminhtml_wblogblog_on_delete',
 					['title' => $title, 'status' => 'success']
 				);
 				return $resultRedirect->setPath('*/*/');
 			} catch (\Exception $e) {
 				$this->_eventManager->dispatch(
-					'adminhtml_cmspage_on_delete',
+					'adminhtml_wblogblog_on_delete',
 					['title' => $title, 'status' => 'fail']
 				);
 				// display error message
 				$this->messageManager->addError($e->getMessage());
 				// go back to edit form
-				return $resultRedirect->setPath('*/*/edit', ['page_id' => $id]);
+				return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
 			}
 		}
 		// display error message
-		$this->messageManager->addError(__('We can\'t find a page to delete.'));
+		$this->messageManager->addError(__('We can\'t find a blog to delete.'));
 		// go to grid
 		return $resultRedirect->setPath('*/*/');
 	}

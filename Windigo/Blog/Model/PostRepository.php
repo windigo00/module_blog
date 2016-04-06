@@ -1,10 +1,10 @@
 <?php
 namespace Windigo\Blog\Model;
 
-use Windigo\Blog\Api\BlogRepositoryInterface,
-	Windigo\Blog\Api\Data\BlogInterface,
-	Windigo\Blog\Model\Resource\Blog as ResourceBlog,
-	Windigo\Blog\Model\Resource\Blog\CollectionFactory as BlogCollectionFactory,
+use Windigo\Blog\Api\PostRepositoryInterface,
+	Windigo\Blog\Api\Data\PostInterface,
+	Windigo\Blog\Model\Resource\Post as ResourcePost,
+	Windigo\Blog\Model\Resource\Post\CollectionFactory as PostCollectionFactory,
 	Magento\Framework\Api\DataObjectHelper,
 	Magento\Framework\Api\SortOrder,
 	Magento\Framework\Exception\CouldNotDeleteException,
@@ -15,29 +15,29 @@ use Windigo\Blog\Api\BlogRepositoryInterface,
 	Magento\Framework\Api\SearchCriteriaInterface
 		;
 /**
- * BlogRepository
+ * PostRepository
  *
  * @author KuBik
  */
-class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInterface {
+class PostRepository extends AbstractSimpleObject implements PostRepositoryInterface {
 	
 	/**
-	 * @var ResourceBlog
+	 * @var ResourcePost
 	 */
 	protected $resource;
 
 	/**
-	 * @var BlogFactory
+	 * @var PostFactory
 	 */
 	protected $blogFactory;
 
 	/**
-	 * @var BlogCollectionFactory
+	 * @var PostCollectionFactory
 	 */
 	protected $blogCollectionFactory;
 
 	/**
-	 * @var \Windigo\Blog\Api\Data\BlogSearchResultsInterfaceFactory
+	 * @var \Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory
 	 */
 	protected $searchResultsFactory;
 
@@ -52,25 +52,25 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 	protected $dataObjectProcessor;
 
 	/**
-	 * @var \Windigo\Blog\Api\Data\BlogInterfaceFactory
+	 * @var \Windigo\Blog\Api\Data\PostInterfaceFactory
 	 */
-	protected $dataBlogFactory;
+	protected $dataPostFactory;
 	
 	/**
-	 * @param ResourceBlog $resource
-	 * @param BlogFactory $blogFactory
-	 * @param \Windigo\Blog\Api\Data\BlogInterfaceFactory $dataBlogFactory
-	 * @param BlogCollectionFactory $blogCollectionFactory
-	 * @param \Windigo\Blog\Api\Data\BlogSearchResultsInterfaceFactory $searchResultsFactory
+	 * @param ResourcePost $resource
+	 * @param PostFactory $blogFactory
+	 * @param \Windigo\Blog\Api\Data\PostInterfaceFactory $dataPostFactory
+	 * @param PostCollectionFactory $blogCollectionFactory
+	 * @param \Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory $searchResultsFactory
 	 * @param DataObjectHelper $dataObjectHelper
 	 * @param DataObjectProcessor $dataObjectProcessor
 	 */
 	public function __construct(
-		ResourceBlog $resource,
-		BlogFactory $blogFactory,
-		\Windigo\Blog\Api\Data\BlogInterfaceFactory $dataBlogFactory,
-		BlogCollectionFactory $blogCollectionFactory,
-		\Windigo\Blog\Api\Data\BlogSearchResultsInterfaceFactory $searchResultsFactory,
+		ResourcePost $resource,
+		PostFactory $blogFactory,
+		\Windigo\Blog\Api\Data\PostInterfaceFactory $dataPostFactory,
+		PostCollectionFactory $blogCollectionFactory,
+		\Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory $searchResultsFactory,
 		DataObjectHelper $dataObjectHelper,
 		DataObjectProcessor $dataObjectProcessor
 	) {
@@ -79,18 +79,18 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 		$this->blogCollectionFactory = $blogCollectionFactory;
 		$this->searchResultsFactory = $searchResultsFactory;
 		$this->dataObjectHelper = $dataObjectHelper;
-		$this->dataBlogFactory = $dataBlogFactory;
+		$this->dataPostFactory = $dataPostFactory;
 		$this->dataObjectProcessor = $dataObjectProcessor;
 	}
 	
 	/**
-	 * Delete Blog
+	 * Delete Post
 	 *
-	 * @param \Windigo\Blog\Api\Data\BlogInterface $blog
+	 * @param \Windigo\Blog\Api\Data\PostInterface $blog
 	 * @return bool
 	 * @throws CouldNotDeleteException
 	 */
-	public function delete(BlogInterface $blog) {
+	public function delete(PostInterface $blog) {
 		try {
 			$this->resource->delete($blog);
 		} catch (\Exception $exception) {
@@ -99,7 +99,7 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 		return true;
 	}
 	/**
-	 * Delete Blog by given Blog Identity
+	 * Delete Post by given Post Identity
 	 *
 	 * @param string $blogId
 	 * @return bool
@@ -111,28 +111,28 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 	}
 	
 	/**
-	 * Load Blog data by given Blog Identity
+	 * Load Post data by given Post Identity
 	 *
 	 * @param string $blogId
-	 * @return Blog
+	 * @return Post
 	 * @throws \Magento\Framework\Exception\NoSuchEntityException
 	 */
 	public function getById($blogId) {
 		$blog = $this->blogFactory->create();
 		$blog->load($blogId);
 		if (!$blog->getId()) {
-			throw new NoSuchEntityException(__('Blog with id "%1" does not exist.', $blogId));
+			throw new NoSuchEntityException(__('Post with id "%1" does not exist.', $blogId));
 		}
 		return $blog;
 	}
 
 	/**
-	 * Load Blog data collection by given search criteria
+	 * Load Post data collection by given search criteria
 	 *
 	 * @SuppressWarnings(PHPMD.CyclomaticComplexity)
 	 * @SuppressWarnings(PHPMD.NPathComplexity)
 	 * @param \Magento\Framework\Api\SearchCriteriaInterface $criteria
-	 * @return \Windigo\Blog\Model\ResourceModel\Blog\Collection
+	 * @return \Windigo\Blog\Model\ResourceModel\Post\Collection
 	 */
 	public function getList(SearchCriteriaInterface $searchCriteria) {
 		$searchResults = $this->searchResultsFactory->create();
@@ -163,17 +163,17 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 		$collection->setCurPage($criteria->getCurrentPage());
 		$collection->setPageSize($criteria->getPageSize());
 		$blogs = [];
-		/** @var Blog $blogModel */
+		/** @var Post $blogModel */
 		foreach ($collection as $blogModel) {
-			$blogData = $this->dataBlogFactory->create();
+			$blogData = $this->dataPostFactory->create();
 			$this->dataObjectHelper->populateWithArray(
 				$blogData,
 				$blogModel->getData(),
-				'Windigo\Blog\Api\Data\BlogInterface'
+				'Windigo\Blog\Api\Data\PostInterface'
 			);
 			$blogs[] = $this->dataObjectProcessor->buildOutputDataArray(
 				$blogData,
-				'Windigo\Blog\Api\Data\BlogInterface'
+				'Windigo\Blog\Api\Data\PostInterface'
 			);
 		}
 		$searchResults->setItems($blogs);
@@ -181,13 +181,13 @@ class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInter
 	}
 
 	/**
-	 * Save Blog data
+	 * Save Post data
 	 *
-	 * @param \Windigo\Blog\Api\Data\BlogInterface $blog
-	 * @return Blog
+	 * @param \Windigo\Blog\Api\Data\PostInterface $blog
+	 * @return Post
 	 * @throws CouldNotSaveException
 	 */
-	public function save(BlogInterface $blog) {
+	public function save(PostInterface $blog) {
 		try {
 			$this->resource->save($blog);
 		} catch (\Exception $exception) {

@@ -43,7 +43,7 @@ class Save extends \Magento\Backend\App\Action
 			$data = $this->dataProcessor->filter($data);
 			$model = $this->_objectManager->create('Windigo\Blog\Model\Blog');
 
-			$id = $this->getRequest()->getParam('blog_id');
+			$id = $this->getRequest()->getParam('id');
 			if ($id) {
 				$model->load($id);
 			}
@@ -56,7 +56,7 @@ class Save extends \Magento\Backend\App\Action
 			);
 
 			if (!$this->dataProcessor->validate($data)) {
-				return $resultRedirect->setPath('*/*/edit', ['blog_id' => $model->getId(), '_current' => true]);
+				return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
 			}
 
 			try {
@@ -64,7 +64,7 @@ class Save extends \Magento\Backend\App\Action
 				$this->messageManager->addSuccess(__('You saved this blog.'));
 				$this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
 				if ($this->getRequest()->getParam('back')) {
-					return $resultRedirect->setPath('*/*/edit', ['blog_id' => $model->getId(), '_current' => true]);
+					return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
 				}
 				return $resultRedirect->setPath('*/*/');
 			} catch (\Magento\Framework\Exception\LocalizedException $e) {
@@ -76,7 +76,7 @@ class Save extends \Magento\Backend\App\Action
 			}
 
 			$this->_getSession()->setFormData($data);
-			return $resultRedirect->setPath('*/*/edit', ['blog_id' => $this->getRequest()->getParam('blog_id')]);
+			return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
 		}
 		return $resultRedirect->setPath('*/*/');
 	}
