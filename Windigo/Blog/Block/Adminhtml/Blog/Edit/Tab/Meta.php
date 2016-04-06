@@ -18,7 +18,7 @@ class Meta extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         /*
          * Checking if user have permissions to save information
          */
-        if ($this->_isAllowedAction('Windigo_Blog::save')) {
+        if ($this->_isAllowedAction('Windigo_Blog::blog_save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;

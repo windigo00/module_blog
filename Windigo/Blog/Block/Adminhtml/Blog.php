@@ -20,7 +20,7 @@ class Blog extends \Magento\Backend\Block\Widget\Grid\Container
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Windigo_Blog::save')) {
+        if ($this->_isAllowedAction('Windigo_Blog::blog_save')) {
             $this->buttonList->update('add', 'label', __('Add New Blog'));
         } else {
             $this->buttonList->remove('add');

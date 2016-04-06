@@ -77,16 +77,16 @@ class BlogActions extends Column
                         ]
                     ];
                 }
-                if (isset($item['identifier'])) {
-                    $item[$name]['preview'] = [
-                        'href' => $this->actionUrlBuilder->getUrl(
-                            $item['identifier'],
-                            /*isset($item['_first_store_id']) ? $item['_first_store_id'] :*/ null,
-                            /*isset($item['store_code']) ? $item['store_code'] :*/ null
-                        ),
-                        'label' => __('Preview')
-                    ];
-                }
+//                if (isset($item['identifier'])) {
+//                    $item[$name]['preview'] = [
+//                        'href' => $this->actionUrlBuilder->getUrl(
+//                            $item['identifier'],
+//                            /*isset($item['_first_store_id']) ? $item['_first_store_id'] :*/ null,
+//                            /*isset($item['store_code']) ? $item['store_code'] :*/ null
+//                        ),
+//                        'label' => __('Preview')
+//                    ];
+//                }
             }
         }
 

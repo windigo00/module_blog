@@ -43,7 +43,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Windigo_Blog::save')) {
+        if ($this->_isAllowedAction('Windigo_Blog::blog_save')) {
             $this->buttonList->update('save', 'label', __('Save Blog'));
             $this->buttonList->add(
                 'saveandcontinue',
