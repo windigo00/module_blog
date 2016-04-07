@@ -16,7 +16,7 @@ class Collection extends AbstractCollection {
 	 */
 	protected function _construct() {
 		$this->_init(
-				'Windigo\Blog\Model\Blog', 'Windigo\Blog\Model\Resource\Blog'
+			'Windigo\Blog\Model\Blog', 'Windigo\Blog\Model\Resource\Blog'
 		);
 	}
 

@@ -28,7 +28,7 @@ class Index extends Action
 	 */
 	public function execute()
 	{
-		$blog_id = $this->getRequest()->getParam('id', $this->getRequest()->getParam('id', false));
+		$blog_id = $this->getRequest()->getParam('blog_id', $this->getRequest()->getParam('blog_id', false));
 		/** @var \Windigo\Blog\Helper\Blog $blog_helper */
 		$blog_helper = $this->_objectManager->get('\Windigo\Blog\Helper\Blog');
 		$result_page = $blog_helper->prepareResultBlog($this, $blog_id);

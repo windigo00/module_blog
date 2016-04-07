@@ -9,7 +9,7 @@ interface PostInterface {
 	/**#@+
 	 * Constants for keys of data array. Identical to the name of the getter in snake case
 	 */
-	const POST_ID				= 'id';
+	const POST_ID				= 'post_id';
 	const TITLE					= 'title';
 	const IDENTIFIER			= 'identifier';
 	const META_KEYWORDS			= 'meta_keywords';
@@ -17,7 +17,7 @@ interface PostInterface {
 	const CONTENT				= 'content';
 	const CREATION_TIME			= 'creation_time';
 	const UPDATE_TIME			= 'update_time';
-	const BLOG_ID				= 'blog_id';
+	const BLOG_ID				= 'blog';
 	const IS_ACTIVE				= 'is_active';
 	/**#@-*/
 

@@ -8,7 +8,7 @@ use Windigo\Blog\Model\Resource\Blog\Collection as BlogCollection;
 
 /**
  * Class Collection
- * Collection for displaying grid of sales documents
+ * Collection for displaying grid of blogs
  */
 class Collection extends BlogCollection implements SearchResultInterface
 {

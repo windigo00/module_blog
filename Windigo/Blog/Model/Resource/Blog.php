@@ -37,7 +37,7 @@ class Blog extends AbstractDb {
 	 * @return void
 	 */
 	protected function _construct() {
-		$this->_init('blog', 'id');
+		$this->_init('blog', 'blog_id');
 	}
 	
 	/**
@@ -72,7 +72,7 @@ class Blog extends AbstractDb {
 	public function checkIdentifier($identifier)
 	{
 		$select = $this->_getLoadByIdentifierSelect($identifier, 1);
-		$select->reset(\Magento\Framework\DB\Select::COLUMNS)->columns('cp.id')->limit(1);
+		$select->reset(\Magento\Framework\DB\Select::COLUMNS)->columns('cp.blog_id')->limit(1);
 		return $this->getConnection()->fetchOne($select);
 	}
 	
@@ -98,7 +98,7 @@ class Blog extends AbstractDb {
 	public function getBlogTitleById($id)
 	{
 		$connection = $this->getConnection();
-		$select = $connection->select()->from($this->getMainTable(), 'title')->where('id = :id');
+		$select = $connection->select()->from($this->getMainTable(), 'title')->where('blog_id = :id');
 		$binds = ['id' => (int)$id];
 
 		return $connection->fetchOne($select, $binds);
@@ -113,7 +113,7 @@ class Blog extends AbstractDb {
 	public function getBlogIdentifierById($id)
 	{
 		$connection = $this->getConnection();
-		$select = $connection->select()->from($this->getMainTable(), 'identifier')->where('id = :id');
+		$select = $connection->select()->from($this->getMainTable(), 'identifier')->where('blog_id = :id');
 		$binds = ['id' => (int)$id];
 
 		return $connection->fetchOne($select, $binds);

@@ -10,7 +10,7 @@ interface BlogInterface
 	/**#@+
 	 * Constants for keys of data array. Identical to the name of the getter in snake case
 	 */
-	const BLOG_ID				= 'id';
+	const BLOG_ID				= 'blog_id';
 	const IDENTIFIER			= 'identifier';
 	const TITLE					= 'title';
 	const META_KEYWORDS			= 'meta_keywords';

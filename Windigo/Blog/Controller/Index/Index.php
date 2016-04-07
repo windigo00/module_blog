@@ -31,17 +31,6 @@ class Index extends AbstractBlog {
 
 	public function execute()
 	{
-		$blogModel = $this->modelBlogFactory->create();
-
-		// Load the item with ID is 1
-		$item = $blogModel->load(1);
-//		var_dump($item->getData());
-
-		// Get blog collection
-		$blogCollection = $blogModel->getCollection();
-		// Load all data of collection
-//		var_dump($blogCollection->getData());
-		
 		
 		$result = $this->resultPageFactory->create();
 		

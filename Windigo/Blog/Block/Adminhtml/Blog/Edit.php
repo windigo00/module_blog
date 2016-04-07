@@ -37,7 +37,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 	 */
 	protected function _construct()
 	{
-		$this->_objectId = 'id';
+		$this->_objectId = 'blog_id';
 		$this->_blockGroup = 'Windigo_Blog';
 		$this->_controller = 'adminhtml_blog';
 

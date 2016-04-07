@@ -8,9 +8,9 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 /**
- * Class BlockActions
+ * Class PostActions
  */
-class BlockActions extends Column
+class PostActions extends Column
 {
 	/**
 	 * Url path
@@ -58,31 +58,22 @@ class BlockActions extends Column
 	{
 		if (isset($dataSource['data']['items'])) {
 			foreach ($dataSource['data']['items'] as & $item) {
-				if (isset($item['block_id'])) {
+				if (isset($item['post_id'])) {
 					$item[$this->getData('name')] = [
 						'edit' => [
 							'href' => $this->urlBuilder->getUrl(
 								static::URL_PATH_EDIT,
 								[
-									'block_id' => $item['block_id']
+									'post_id' => $item['post_id']
 								]
 							),
 							'label' => __('Edit')
-						],
-						'details' => [
-							'href' => $this->urlBuilder->getUrl(
-								static::URL_PATH_DETAILS,
-								[
-									'block_id' => $item['block_id']
-								]
-							),
-							'label' => __('Details')
 						],
 						'delete' => [
 							'href' => $this->urlBuilder->getUrl(
 								static::URL_PATH_DELETE,
 								[
-									'block_id' => $item['block_id']
+									'post_id' => $item['post_id']
 								]
 							),
 							'label' => __('Delete'),

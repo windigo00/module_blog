@@ -37,7 +37,7 @@ class Posts extends \Magento\Backend\Block\Widget\Form\Generic implements
         /*
          * Checking if user have permissions to save information
          */
-        if ($this->_isAllowedAction('Windigo_Blog::save')) {
+        if ($this->_isAllowedAction('Windigo_Blog::blog_save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;
@@ -71,7 +71,7 @@ class Posts extends \Magento\Backend\Block\Widget\Form\Generic implements
         );
         $contentField->setRenderer($renderer);
 
-        $this->_eventManager->dispatch('adminhtml_wblog_blog_edit_tab_content_prepare_form', ['form' => $form]);
+//        $this->_eventManager->dispatch('adminhtml_wblog_blog_edit_tab_content_prepare_form', ['form' => $form]);
         $form->setValues($model->getData());
         $this->setForm($form);
 

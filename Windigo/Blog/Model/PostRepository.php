@@ -29,12 +29,12 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 	/**
 	 * @var PostFactory
 	 */
-	protected $blogFactory;
+	protected $postFactory;
 
 	/**
 	 * @var PostCollectionFactory
 	 */
-	protected $blogCollectionFactory;
+	protected $postCollectionFactory;
 
 	/**
 	 * @var \Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory
@@ -58,25 +58,25 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 	
 	/**
 	 * @param ResourcePost $resource
-	 * @param PostFactory $blogFactory
+	 * @param PostFactory $postFactory
 	 * @param \Windigo\Blog\Api\Data\PostInterfaceFactory $dataPostFactory
-	 * @param PostCollectionFactory $blogCollectionFactory
+	 * @param PostCollectionFactory $postCollectionFactory
 	 * @param \Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory $searchResultsFactory
 	 * @param DataObjectHelper $dataObjectHelper
 	 * @param DataObjectProcessor $dataObjectProcessor
 	 */
 	public function __construct(
 		ResourcePost $resource,
-		PostFactory $blogFactory,
+		PostFactory $postFactory,
 		\Windigo\Blog\Api\Data\PostInterfaceFactory $dataPostFactory,
-		PostCollectionFactory $blogCollectionFactory,
+		PostCollectionFactory $postCollectionFactory,
 		\Windigo\Blog\Api\Data\PostSearchResultsInterfaceFactory $searchResultsFactory,
 		DataObjectHelper $dataObjectHelper,
 		DataObjectProcessor $dataObjectProcessor
 	) {
 		$this->resource = $resource;
-		$this->blogFactory = $blogFactory;
-		$this->blogCollectionFactory = $blogCollectionFactory;
+		$this->postFactory = $postFactory;
+		$this->postCollectionFactory = $postCollectionFactory;
 		$this->searchResultsFactory = $searchResultsFactory;
 		$this->dataObjectHelper = $dataObjectHelper;
 		$this->dataPostFactory = $dataPostFactory;
@@ -86,13 +86,13 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 	/**
 	 * Delete Post
 	 *
-	 * @param \Windigo\Blog\Api\Data\PostInterface $blog
+	 * @param \Windigo\Blog\Api\Data\PostInterface $post
 	 * @return bool
 	 * @throws CouldNotDeleteException
 	 */
-	public function delete(PostInterface $blog) {
+	public function delete(PostInterface $post) {
 		try {
-			$this->resource->delete($blog);
+			$this->resource->delete($post);
 		} catch (\Exception $exception) {
 			throw new CouldNotDeleteException(__($exception->getMessage()));
 		}
@@ -101,29 +101,29 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 	/**
 	 * Delete Post by given Post Identity
 	 *
-	 * @param string $blogId
+	 * @param string $postId
 	 * @return bool
 	 * @throws CouldNotDeleteException
 	 * @throws NoSuchEntityException
 	 */
-	public function deleteById($blogId) {
-		return $this->delete($this->getById($blogId));
+	public function deleteById($postId) {
+		return $this->delete($this->getById($postId));
 	}
 	
 	/**
 	 * Load Post data by given Post Identity
 	 *
-	 * @param string $blogId
+	 * @param string $postId
 	 * @return Post
 	 * @throws \Magento\Framework\Exception\NoSuchEntityException
 	 */
-	public function getById($blogId) {
-		$blog = $this->blogFactory->create();
-		$blog->load($blogId);
-		if (!$blog->getId()) {
-			throw new NoSuchEntityException(__('Post with id "%1" does not exist.', $blogId));
+	public function getById($postId) {
+		$post = $this->postFactory->create();
+		$post->load($postId);
+		if (!$post->getId()) {
+			throw new NoSuchEntityException(__('Post with id "%1" does not exist.', $postId));
 		}
-		return $blog;
+		return $post;
 	}
 
 	/**
@@ -138,7 +138,7 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 		$searchResults = $this->searchResultsFactory->create();
 		$searchResults->setSearchCriteria($criteria);
 
-		$collection = $this->blogCollectionFactory->create();
+		$collection = $this->postCollectionFactory->create();
 		foreach ($criteria->getFilterGroups() as $filterGroup) {
 			foreach ($filterGroup->getFilters() as $filter) {
 				if ($filter->getField() === 'store_id') {
@@ -162,37 +162,37 @@ class PostRepository extends AbstractSimpleObject implements PostRepositoryInter
 		}
 		$collection->setCurPage($criteria->getCurrentPage());
 		$collection->setPageSize($criteria->getPageSize());
-		$blogs = [];
-		/** @var Post $blogModel */
-		foreach ($collection as $blogModel) {
-			$blogData = $this->dataPostFactory->create();
+		$posts = [];
+		/** @var Post $postModel */
+		foreach ($collection as $postModel) {
+			$postData = $this->dataPostFactory->create();
 			$this->dataObjectHelper->populateWithArray(
-				$blogData,
-				$blogModel->getData(),
+				$postData,
+				$postModel->getData(),
 				'Windigo\Blog\Api\Data\PostInterface'
 			);
-			$blogs[] = $this->dataObjectProcessor->buildOutputDataArray(
-				$blogData,
+			$posts[] = $this->dataObjectProcessor->buildOutputDataArray(
+				$postData,
 				'Windigo\Blog\Api\Data\PostInterface'
 			);
 		}
-		$searchResults->setItems($blogs);
+		$searchResults->setItems($posts);
 		return $searchResults;
 	}
 
 	/**
 	 * Save Post data
 	 *
-	 * @param \Windigo\Blog\Api\Data\PostInterface $blog
+	 * @param \Windigo\Blog\Api\Data\PostInterface $post
 	 * @return Post
 	 * @throws CouldNotSaveException
 	 */
-	public function save(PostInterface $blog) {
+	public function save(PostInterface $post) {
 		try {
-			$this->resource->save($blog);
+			$this->resource->save($post);
 		} catch (\Exception $exception) {
 			throw new CouldNotSaveException(__($exception->getMessage()));
 		}
-		return $blog;
+		return $post;
 	}
 }

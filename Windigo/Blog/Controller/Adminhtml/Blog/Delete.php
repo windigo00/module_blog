@@ -9,7 +9,7 @@ class Delete extends \Magento\Backend\App\Action
 	 */
 	protected function _isAllowed()
 	{
-		return $this->_authorization->isAllowed('Magento_Cms::blog_delete');
+		return $this->_authorization->isAllowed('Windigo_Blog::blog_delete');
 	}
 
 	/**
@@ -20,7 +20,7 @@ class Delete extends \Magento\Backend\App\Action
 	public function execute()
 	{
 		// check if we know what should be deleted
-		$id = $this->getRequest()->getParam('id');
+		$id = $this->getRequest()->getParam('blog_id');
 		/** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
 		$resultRedirect = $this->resultRedirectFactory->create();
 		if ($id) {
@@ -47,7 +47,7 @@ class Delete extends \Magento\Backend\App\Action
 				// display error message
 				$this->messageManager->addError($e->getMessage());
 				// go back to edit form
-				return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
+				return $resultRedirect->setPath('*/*/edit', ['blog_id' => $id]);
 			}
 		}
 		// display error message

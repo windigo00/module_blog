@@ -1,15 +1,31 @@
 <?php
-/** @var $block \Ashsmith\Blog\Block\PostView */
-/** @var $blog \Ashsmith\Blog\Model\Blog */
+/** @var $blog \Windigo\Blog\Model\Blog */
 $blog = $block->getBlog();
 ?>
 <div class="navigation"><a href="."><?php echo __('&lt;- Back') ?></a></div>
 <h1 class="blog-post-item-title"><?php echo $blog->getTitle() ?></h1>
-
-<div class="blog-post-item-content">
-    <?php echo $blog->getContent(); ?>
-</div>
-
 <div class="blog-post-item-meta">
     <strong><?php echo __('Created at:') ?></strong> <?php echo $blog->getCreationTime() ?>
+</div>
+<div class="blog-post-item-content">
+    <?php $posts = $block->getPosts(); 
+	if (count($posts)): ?>
+	<ul class="blog-post-list">
+		<?php foreach($posts as $post):?>
+		<li class="blog-post-list-item">
+            <h3 class="blog-post-item-title">
+                <a href="<?php echo $block->getStoreUrl($post->getUrl()) ?>"><?php echo $post->getTitle() ?></a>
+            </h3>
+
+            <div class="blog-post-item-content">
+                <?php echo $post->getContent(); ?>
+            </div>
+
+            <div class="blog-post-item-meta">
+                <strong><?php echo __('Created at:') ?></strong> <?php echo $post->getCreationTime() ?>
+            </div>
+        </li>
+		<?php endforeach;?>
+	</ul>
+	<?php endif; ?>
 </div>

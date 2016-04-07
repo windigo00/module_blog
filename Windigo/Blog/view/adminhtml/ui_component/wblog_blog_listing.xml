@@ -20,8 +20,8 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">BlogGridDataProvider</argument>
             <argument name="name" xsi:type="string">wblog_blog_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">id</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">blog_id</argument>
+            <argument name="requestFieldName" xsi:type="string">blog_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
@@ -106,7 +106,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">wblog_blog_listing.wblog_blog_listing.wblog_blog_columns.ids</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">blog_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -175,7 +175,7 @@
                 <item name="editorConfig" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">wblog_blog_listing.wblog_blog_listing.wblog_blog_columns.ids</item>
                     <item name="enabled" xsi:type="boolean">true</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">blog_id</item>
                     <item name="clientConfig" xsi:type="array">
                         <item name="saveUrl" xsi:type="url" path="wblog/blog/inlineEdit"/>
                         <item name="validateBeforeSave" xsi:type="boolean">false</item>
@@ -203,11 +203,11 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">blog_id</item>
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="id">
+        <column name="blog_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
@@ -310,7 +310,7 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="indexField" xsi:type="string">blog_id</item>
                 </item>
             </argument>
         </actionsColumn>

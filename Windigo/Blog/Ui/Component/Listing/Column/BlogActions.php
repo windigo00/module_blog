@@ -63,13 +63,13 @@ class BlogActions extends Column
 		if (isset($dataSource['data']['items'])) {
 			foreach ($dataSource['data']['items'] as & $item) {
 				$name = $this->getData('name');
-				if (isset($item['id'])) {
+				if (isset($item['blog_id'])) {
 					$item[$name]['edit'] = [
-						'href' => $this->urlBuilder->getUrl($this->editUrl, ['id' => $item['id']]),
+						'href' => $this->urlBuilder->getUrl($this->editUrl, ['blog_id' => $item['blog_id']]),
 						'label' => __('Edit')
 					];
 					$item[$name]['delete'] = [
-						'href' => $this->urlBuilder->getUrl(self::URL_PATH_DELETE, ['id' => $item['id']]),
+						'href' => $this->urlBuilder->getUrl(self::URL_PATH_DELETE, ['blog_id' => $item['blog_id']]),
 						'label' => __('Delete'),
 						'confirm' => [
 							'title' => __('Delete ${ $.$data.title }'),

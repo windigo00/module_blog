@@ -66,7 +66,7 @@ class Edit extends \Magento\Backend\App\Action
 	public function execute()
 	{
 		// 1. Get ID and create model
-		$id = $this->getRequest()->getParam('id');
+		$id = $this->getRequest()->getParam('blog_id');
 		$model = $this->_objectManager->create('Windigo\Blog\Model\Blog');
 
 		// 2. Initial checking

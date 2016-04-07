@@ -51,7 +51,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
 		$fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Blog Information')]);
 
 		if ($model->getId()) {
-			$fieldset->addField('id', 'hidden', ['name' => 'id']);
+			$fieldset->addField('blog_id', 'hidden', ['name' => 'blog_id']);
 		}
 
 		$fieldset->addField(

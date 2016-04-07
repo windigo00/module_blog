@@ -69,7 +69,7 @@ class Blog extends AbstractHelper {
 
 		// This will generate a layout handle like: blog_blog_view_id_1
 		// giving us a unique handle to target specific blog blogs if we wish to.
-		$resultPage->addPageLayoutHandles(['id' => $this->_blog->getId()]);
+		$resultPage->addPageLayoutHandles(['blog_id' => $this->_blog->getId()]);
 
 		// Magento is event driven after all, lets remember to dispatch our own, to help people
 		// who might want to add additional functionality, or filter the blogs somehow!

@@ -156,6 +156,6 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
 	 */
 	public function getRowUrl($row)
 	{
-		return $this->getUrl('*/*/edit', ['id' => $row->getId()]);
+		return $this->getUrl('*/*/edit', ['blog_id' => $row->getId()]);
 	}
 }

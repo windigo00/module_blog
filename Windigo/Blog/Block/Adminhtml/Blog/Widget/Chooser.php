@@ -148,7 +148,7 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
 			'chooser_id',
 			[
 				'header' => __('ID'),
-				'index' => 'id',
+				'index' => 'blog_id',
 				'header_css_class' => 'col-id',
 				'column_css_class' => 'col-id'
 			]

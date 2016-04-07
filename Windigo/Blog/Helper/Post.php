@@ -60,7 +60,6 @@ class Post extends AbstractHelper
 				return false;
 			}
 		}
-
 		if (!$this->_post->getId()) {
 			return false;
 		}
@@ -72,7 +71,7 @@ class Post extends AbstractHelper
 
 		// This will generate a layout handle like: blog_post_view_id_1
 		// giving us a unique handle to target specific blog posts if we wish to.
-		$resultPage->addPageLayoutHandles(['id' => $this->_post->getId()]);
+		$resultPage->addPageLayoutHandles(['post_id' => $this->_post->getId()]);
 
 		// Magento is event driven after all, lets remember to dispatch our own, to help people
 		// who might want to add additional functionality, or filter the posts somehow!

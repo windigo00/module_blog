@@ -3,14 +3,14 @@
     <preference for="Windigo\Blog\Api\Data\BlogInterface" type="Windigo\Blog\Model\Blog" />
 	<preference for="Windigo\Blog\Api\Data\BlogSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
     <preference for="Windigo\Blog\Api\BlogRepositoryInterface" type="Windigo\Blog\Model\BlogRepository" />
-    <!--<preference for="Windigo\Blog\Api\Data\PostSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />-->
-    <!--<preference for="Windigo\Blog\Api\Data\PostInterface" type="Windigo\Blog\Model\Post" />-->
-    <!--<preference for="Windigo\Blog\Api\PostRepositoryInterface" type="Windigo\Blog\Model\PostRepository" />-->
+    <preference for="Windigo\Blog\Api\Data\PostSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Windigo\Blog\Api\Data\PostInterface" type="Windigo\Blog\Model\Post" />
+    <preference for="Windigo\Blog\Api\PostRepositoryInterface" type="Windigo\Blog\Model\PostRepository" />
 	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="wblog_blog_listing_data_source" xsi:type="string">Windigo\Blog\Model\Resource\Blog\Grid\Collection</item>
-                <item name="wblog_post_listing_data_source" xsi:type="string">Windigo\Blog\Model\Resource\Block\Grid\Collection</item>
+                <item name="wblog_post_listing_data_source" xsi:type="string">Windigo\Blog\Model\Resource\Post\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -22,7 +22,7 @@
             <argument name="resourceModel" xsi:type="string">Windigo\Blog\Model\Resource\Blog</argument>
         </arguments>
     </type>
-    <type name="Windigo\Blog\Model\Resource\Block\Grid\Collection">
+    <type name="Windigo\Blog\Model\Resource\Post\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">blog_post</argument>
             <argument name="eventPrefix" xsi:type="string">wlog_post_grid_collection</argument>
@@ -44,7 +44,7 @@
             <argument name="filterPool" xsi:type="object" shared="false">WblogGirdFilterPool</argument>
         </arguments>
     </virtualType>
-    <virtualType name="BlockGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    <virtualType name="PostGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
             <argument name="collection" xsi:type="object" shared="false">Windigo\Blog\Model\Resource\Post\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">WblogGirdFilterPool</argument>

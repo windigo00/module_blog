@@ -34,9 +34,9 @@ class PostView extends Template implements IdentityInterface {
 		// pass the 'posts' data to this block, with a collection
 		// that has been filtered differently!
 		if (!$this->hasData('post')) {
-			if ($this->getPostId()) {
+			if (!$this->_post->getId()) {
 				/** @var \Windigo\Blog\Model\Post $post */
-				$post = $this->_postFactory->create();
+				$post = $this->_post->load();
 			} else {
 				$post = $this->_post;
 			}
