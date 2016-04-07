@@ -51,7 +51,7 @@ class Router implements RouterInterface {
 	 */
 	public function match(\Magento\Framework\App\RequestInterface $request)
 	{
-		$url_key = trim($request->getPathInfo(), '/wblog/');
+		$url_key = str_replace('/wblog/', '', $request->getPathInfo());
 		$url_key = rtrim($url_key, '/');
 		// Check if the url has post identifier blogIdentifier/postIdentifier
 		$key = explode('/', $url_key);
