@@ -55,14 +55,14 @@ class InstallData implements InstallDataInterface
 	{
 		$blogs = [
 			[
-				'title' => 'How to create a simple module',
-				'identifier' => 'the_summary',
+				'title' => 'Lorem ipsum dolor sit amet',
+				'identifier' => 'ipsum_dolor',
 				'creation_time' => date('Y-m-d H:i:s'),
 				'is_active' => 1
 			],
 			[
-				'title' => 'Create a module with custom database table',
-				'identifier' => 'the_summary_2',
+				'title' => 'Nemo enim ipsam voluptatem quia voluptas',
+				'identifier' => 'voluptatem quia',
 				'creation_time' => date('Y-m-d H:i:s'),
 				'is_active' => 1
 			]
@@ -74,16 +74,16 @@ class InstallData implements InstallDataInterface
 		$posts = [
 			[
 				[
-					'title' => 'first test post',
-					'content' => 'aaaaaaa',
-					'identifier' => 'first_test',
+					'title' => 'Ut enim ad minim veniam',
+					'content' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce aliquam vestibulum ipsum. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. In rutrum. Vivamus luctus egestas leo. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Pellentesque ipsum. Nullam sit amet magna in magna gravida vehicula. Maecenas aliquet accumsan leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Aliquam in lorem sit amet leo accumsan lacinia. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Aliquam erat volutpat.</p>',
+					'identifier' => 'consectetuer_adipiscing',
 					'creation_time' => date('Y-m-d H:i:s'),
 					'is_active' => 1
 				],
 				[
-					'title' => 'second test post',
-					'content' => 'bbbbb',
-					'identifier' => 'second_test',
+					'title' => 'Cras elementum',
+					'content' => '<p>Etiam neque. Cras elementum. Fusce aliquam vestibulum ipsum. Nulla non arcu lacinia neque faucibus fringilla. Fusce wisi. Integer in sapien. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Integer malesuada. Donec vitae arcu. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p><p>Fusce aliquam vestibulum ipsum. Mauris elementum mauris vitae tortor. Nulla est. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Mauris metus. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Mauris elementum mauris vitae tortor. Nullam at arcu a est sollicitudin euismod. Suspendisse nisl. Praesent vitae arcu tempor neque lacinia pretium. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.</p>',
+					'identifier' => 'aliquam_vestibulum',
 					'creation_time' => date('Y-m-d H:i:s'),
 					'is_active' => 1
 				]
