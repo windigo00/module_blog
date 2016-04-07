@@ -62,7 +62,7 @@ class InstallData implements InstallDataInterface
 			],
 			[
 				'title' => 'Nemo enim ipsam voluptatem quia voluptas',
-				'identifier' => 'voluptatem quia',
+				'identifier' => 'voluptatem_quia',
 				'creation_time' => date('Y-m-d H:i:s'),
 				'is_active' => 1
 			]
