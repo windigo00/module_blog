@@ -14,7 +14,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 /**
  * Description of Post
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Post extends AbstractDb
 {

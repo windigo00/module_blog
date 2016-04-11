@@ -17,7 +17,7 @@ use Windigo\Blog\Controller\AbstractBlog,
         ;
 
 /**
- * Blog Index Controller
+ * Blog list Controller
  *
  * @author windigo
  */

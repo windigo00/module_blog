@@ -20,7 +20,7 @@ use Magento\Framework\View\Element\Template,
 /**
  * Description of Post
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Post extends PostView
 {

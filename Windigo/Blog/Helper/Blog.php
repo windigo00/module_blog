@@ -15,7 +15,7 @@ use Magento\Framework\App\Action\Action,
 /**
  * Description of Blog helper
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Blog extends AbstractHelper
 {

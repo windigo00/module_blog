@@ -14,7 +14,7 @@ use \Magento\Framework\App\Action\Action;
 /**
  * Description of Post index
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Index extends Action
 {

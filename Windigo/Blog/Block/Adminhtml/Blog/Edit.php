@@ -13,7 +13,7 @@ namespace Windigo\Blog\Block\Adminhtml\Blog;
 /**
  * Admin Blog
  *
- * @author Kubik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {

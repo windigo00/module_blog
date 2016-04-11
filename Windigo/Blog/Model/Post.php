@@ -18,7 +18,7 @@ use Windigo\Blog\Api\Data\PostInterface,
 /**
  * Description of Post
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  * 
  * @method \Windigo\Blog\Model\Resource\Post _getResource()
  * @method \Windigo\Blog\Model\Resource\Post getResource()

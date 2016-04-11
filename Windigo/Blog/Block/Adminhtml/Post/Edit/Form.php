@@ -13,7 +13,7 @@ namespace Windigo\Blog\Block\Adminhtml\Post\Edit;
 /**
  * Adminhtml post edit form block
  *
- * @author kubik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {

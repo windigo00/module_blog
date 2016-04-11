@@ -16,7 +16,7 @@ use Magento\Framework\App\Action\Action,
 /**
  * Description of Post helper
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Post extends AbstractHelper
 {

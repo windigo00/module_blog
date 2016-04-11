@@ -26,7 +26,7 @@ use Windigo\Blog\Api\PostRepositoryInterface,
 /**
  * PostRepository
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class PostRepository extends AbstractSimpleObject implements PostRepositoryInterface
 {

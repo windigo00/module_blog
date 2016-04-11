@@ -19,7 +19,7 @@ use Magento\Framework\View\Element\Template,
 /**
  * Description of Blog
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class BlogList extends Template implements IdentityInterface
 {

@@ -8,31 +8,15 @@
  * @author   Windigo <jakub.kuris@gmail.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  */
-namespace Windigo\Blog\Controller\View;
+namespace Windigo\Blog\Controller\Blog;
 
-use \Magento\Framework\App\Action\Action;
+use Windigo\Blog\Controller\AbstractBlog;
 
-class Index extends Action
+class View extends AbstractBlog
 {
-    /**
- * @var  \Magento\Framework\View\Result\Page 
-*/
-    protected $resultPageFactory;
 
     /**
-     * @param \Magento\Framework\App\Action\Context               $context
-     * @param \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory
-     */
-    public function __construct(\Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory
-    ) {
-    
-        $this->resultForwardFactory = $resultForwardFactory;
-        parent::__construct($context);
-    }
-
-    /**
-     * Blog Index, shows a list of recent blog posts.
+     * Blog Index, shows a list of blogs.
      *
      * @return \Magento\Framework\View\Result\PageFactory
      */
@@ -40,8 +24,8 @@ class Index extends Action
     {
         $blog_id = $this->getRequest()->getParam('blog_id', $this->getRequest()->getParam('blog_id', false));
         /**
- * @var \Windigo\Blog\Helper\Blog $blog_helper 
-*/
+         * @var \Windigo\Blog\Helper\Blog $blog_helper 
+         */
         $blog_helper = $this->_objectManager->get('\Windigo\Blog\Helper\Blog');
         $result_page = $blog_helper->prepareResultBlog($this, $blog_id);
         if (!$result_page) {

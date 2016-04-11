@@ -26,7 +26,7 @@ use Windigo\Blog\Api\BlogRepositoryInterface,
 /**
  * BlogRepository
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class BlogRepository extends AbstractSimpleObject implements BlogRepositoryInterface
 {

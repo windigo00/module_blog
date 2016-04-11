@@ -13,7 +13,7 @@ namespace Windigo\Blog\Block\Adminhtml\Blog\Widget;
 /**
  * Blog chooser for Wysiwyg widget
  *
- * @author kubik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
 {

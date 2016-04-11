@@ -18,7 +18,7 @@ use Magento\Framework\App\Action\Action,
 /**
  * Description of AbstractBlog
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class AbstractBlog extends Action
 {
@@ -38,7 +38,8 @@ class AbstractBlog extends Action
         parent::__construct($context);
         $this->resultPageFactory = $pageFactory;
     }
-    
+
+
     /**
      * Executes default index action
      */

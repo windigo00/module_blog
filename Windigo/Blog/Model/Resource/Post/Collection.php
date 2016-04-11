@@ -15,7 +15,7 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 /**
  * Description of Collection
  *
- * @author KuBik
+ * @author Windigo <jakub.kuris@gmail.com>
  */
 class Collection extends AbstractCollection
 {
