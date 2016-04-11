@@ -1,5 +1,13 @@
 <?php
+/**
+ * Copyright © 2016 Windigo. All rights reserved.
+ * See COPYING.txt for license details.
 
+ * @category Adminhtml
+ * @package  W-Blog
+ * @author   Windigo <jakub.kuris@gmail.com>
+ * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
+ */
 namespace Windigo\Blog\Block\Adminhtml\Post\Edit;
 
 /**
@@ -9,11 +17,11 @@ namespace Windigo\Blog\Block\Adminhtml\Post\Edit;
  */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
-	/**
+    /**
      * @param \Magento\Backend\Block\Template\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\Data\FormFactory $formFactory
-     * @param array $data
+     * @param \Magento\Framework\Registry             $registry
+     * @param \Magento\Framework\Data\FormFactory     $formFactory
+     * @param array                                   $data
      */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
@@ -35,23 +43,27 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->setId('post_form');
         $this->setTitle(__('Post Information'));
     }
-	
-	/**
-	 * Prepare form
-	 *
-	 * @return $this
-	 */
-	protected function _prepareForm()
-	{
-		/** @var \Windigo\Blog\Model\Post $model */
+    
+    /**
+     * Prepare form
+     *
+     * @return $this
+     */
+    protected function _prepareForm()
+    {
+        /**
+ * @var \Windigo\Blog\Model\Post $model 
+*/
         $model = $this->_coreRegistry->registry('wblog_post');
-		
-		/** @var \Magento\Framework\Data\Form $form */
-		$form = $this->_formFactory->create(
-			['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
-		);
-		
-		$form->setHtmlIdPrefix('post_');
+        
+        /**
+ * @var \Magento\Framework\Data\Form $form 
+*/
+        $form = $this->_formFactory->create(
+            ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
+        );
+        
+        $form->setHtmlIdPrefix('post_');
 
         $fieldset = $form->addFieldset(
             'base_fieldset',
@@ -79,17 +91,17 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'class' => 'validate-xml-identifier'
             ]
         );
-		
-		$fieldset->addField(
+        
+        $fieldset->addField(
             'blog',
             'select',
             [
-				'name' => 'blog', 
-				'label' => __('Related to blog'), 
-				'title' => __('Related to blog'), 
-				'required' => true,
-				'options' => $model->getAvailableBlogs()
-			]
+            'name' => 'blog', 
+            'label' => __('Related to blog'), 
+            'title' => __('Related to blog'), 
+            'required' => true,
+            'options' => $model->getAvailableBlogs()
+            ]
         );
 
         $fieldset->addField(
@@ -124,5 +136,5 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->setForm($form);
 
         return parent::_prepareForm();
-	}
+    }
 }
